@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catálogo — Ateliê</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=4">
+</head>
+<body>
+
+  <a href="index.html" class="home-btn" aria-label="Voltar ao início" title="Início">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 11.5 12 4l9 7.5"/>
+      <path d="M5.5 10v9a1 1 0 0 0 1 1H9a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h2.5a1 1 0 0 0 1-1v-9"/>
+    </svg>
+  </a>
+
+  <main class="page">
+    <!-- banner animado sobre a coleção — antes era um gif de 51MB (por
+         isso engasgava); agora é um vídeo em loop, mesmo visual, ~2MB -->
+    <div class="catalog-banner" id="catalog-banner">
+      <video autoplay muted loop playsinline
+             onerror="document.getElementById('catalog-banner').classList.add('sem-imagem'); this.style.display='none';">
+        <source src="assets/img/banner.webm" type="video/webm">
+        <source src="assets/img/banner.mp4" type="video/mp4">
+      </video>
+      <div class="catalog-banner-placeholder"></div>
+    </div>
+
+    <div class="page-head">
+      <p class="eyebrow">Catálogo</p>
+      <img class="page-logo" id="page-logo" src="assets/img/logo-colecao.png" alt="Logo da coleção"
+           onerror="this.replaceWith(Object.assign(document.createElement('h2'), {className:'page-title', textContent:'Peças do ateliê'}));">
+      <p class="page-lede">Produção independente Ogeid. Escolha uma peça para ver os detalhes e encomendar.</p>
+    </div>
+
+    <div class="catalog-grid" id="catalog-grid">
+      <!-- os cards são montados automaticamente pelo js/catalogo.js a partir de data/produtos.json -->
+    </div>
+  </main>
+
+  <script src="js/catalogo.js?v=2"></script>
+
+  <script src="js/firebase-config.js"></script>
+  <script src="js/visitas.js" defer></script>
+
+  <footer>
+    <span>Ateliê — peças autorais</span>
+    <span>feito à mão, uma de cada vez</span>
+  </footer>
+</body>
+</html>
